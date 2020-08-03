@@ -36,10 +36,7 @@ class DoctorShow extends React.Component {
       user_id: this.props.currentUser.id,
     };
     try {
-      let res = await axios.post(
-        `${API_ROOT}/favorites`,
-        favoriteObject
-      );
+      let res = await axios.post(`${API_ROOT}/favorites`, favoriteObject);
       this.setState({ favorite: 1, id: res.data.id }, () => {
         this.props.loadUser();
       });
@@ -57,9 +54,8 @@ class DoctorShow extends React.Component {
       this.setState({ favorite: 0 });
     }
     try {
-      let res = await axios.delete(
-        `${API_ROOT}/favorites/${favorite.id}`
-      );
+      let res = await axios.delete(`${API_ROOT}/favorites/${favorite.id}`);
+
       console.log('res.data from deletefavorite', res.data);
       this.setState({ favorite: 0 }, () => {
         this.props.loadUser();
@@ -68,7 +64,7 @@ class DoctorShow extends React.Component {
       console.log('error', err);
     }
     this.props.loadingHandler(false);
-    console.log('got here in delete');
+    // console.log('got here in delete');
   };
 
   rate = (e, { rating }) => {
@@ -80,7 +76,7 @@ class DoctorShow extends React.Component {
   };
 
   render() {
-    console.log('DOCTOR SHOW THIS.STATE: ', this.props);
+    // console.log('DOCTOR SHOW THIS.STATE: ', this.props);
     // debugger
     const { reviews, photos, photo } = this.props.doctorShow;
 

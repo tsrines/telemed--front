@@ -31,8 +31,8 @@ const About = ({
       />
 
       <Rating
-        disabled={loading.toString()}
-        loading={loading ? loading : undefined}
+        disabled={loading}
+        
         onRate={(e, data) => rate(e, data)}
         icon='heart'
         rating={favorite}

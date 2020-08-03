@@ -28,7 +28,7 @@ class Search extends React.Component {
   };
 
   onSubmit = async (e) => {
-    console.log('this.props from search', this.props);
+    // console.log('this.props from search', this.props);
     e.preventDefault();
     this.props.loadingHandler(true);
     const payload = this.state;

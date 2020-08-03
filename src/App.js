@@ -74,7 +74,7 @@ class App extends React.Component {
       let res = await axios.post(`${API_ROOT}/searches`, payload);
       data = res.data;
 
-      console.log('data from saveSearch', data);
+
     } catch (error) {}
     this.loadingHandler(false);
     this.props.history.push(`/search/${payload.user_id}/${data.id}`);
@@ -245,7 +245,7 @@ class App extends React.Component {
 
   render() {
     // console.log('THIS.PROPS FROM APP', this.props);
-    console.log('THIS.STATE FROM APP', this.state);
+    // console.log('THIS.STATE FROM APP', this.state);
     return (
       <>
         <Switch>
