@@ -11,10 +11,12 @@ import { useEffect } from 'react';
 const Profile = ({ currentUser, loadUser, history, loading }) => {
   useEffect(() => {
     loadUser();
-  });
+  }, [loadUser]);
+
   const profileDoctors = () =>
     currentUser.doctors &&
     currentUser.doctors.map((doc) => <DoctorCard key={doc.id} doctor={doc} />);
+
   return (
     <>
       {currentUser !== undefined && (

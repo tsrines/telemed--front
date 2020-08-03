@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { API_ROOT } from '../../constants';
 
 export const createDoctors = async (doctors) => {
   const docArray = [];
@@ -6,7 +7,7 @@ export const createDoctors = async (doctors) => {
     let detailedDoctor;
     try {
       let res = await axios.get(
-        `http://localhost:3000/geocodes/details/${doctor.place_id}`
+        `${API_ROOT}/geocodes/details/${doctor.place_id}`
       );
       detailedDoctor = res.data.result;
     } catch (err) {
@@ -53,7 +54,7 @@ export const createDoctors = async (doctors) => {
     let data;
     try {
       let res = await fetch(
-        'http://localhost:3000/doctors',
+        `${API_ROOT}/doctors`,
         postDoctorsOptions
       );
 

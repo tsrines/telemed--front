@@ -18,7 +18,7 @@ const About = ({
 }) => {
   useEffect(() => {
     loadUser();
-  });
+  },[ loadUser]);
 
   return (
     <Segment textAlign='center'>
@@ -31,8 +31,8 @@ const About = ({
       />
 
       <Rating
-        disabled={loading}
-        loading={loading}
+        disabled={loading.toString()}
+        loading={loading ? loading : undefined}
         onRate={(e, data) => rate(e, data)}
         icon='heart'
         rating={favorite}

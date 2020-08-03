@@ -9,6 +9,7 @@ import {
   Input,
 } from 'semantic-ui-react';
 import axios from 'axios';
+import { API_ROOT } from '../constants';
 
 class Search extends React.Component {
   state = {
@@ -35,7 +36,7 @@ class Search extends React.Component {
     if (lat === null && lng === null) {
       try {
         let res = await axios.get(
-          `http://localhost:3000/geocodes/coords?address=${address}`
+          `${API_ROOT}/geocodes/coords?address=${address}`
         );
         payload.lat = res.data.lat;
         payload.lng = res.data.lng;

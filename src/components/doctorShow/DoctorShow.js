@@ -3,6 +3,7 @@ import { Divider, Image, Container } from 'semantic-ui-react';
 import axios from 'axios';
 
 import ShowMenu from './ShowMenu';
+import { API_ROOT } from '../../constants';
 
 class DoctorShow extends React.Component {
   state = {
@@ -36,7 +37,7 @@ class DoctorShow extends React.Component {
     };
     try {
       let res = await axios.post(
-        `http://localhost:3000/favorites`,
+        `${API_ROOT}/favorites`,
         favoriteObject
       );
       this.setState({ favorite: 1, id: res.data.id }, () => {
@@ -57,7 +58,7 @@ class DoctorShow extends React.Component {
     }
     try {
       let res = await axios.delete(
-        `http://localhost:3000/favorites/${favorite.id}`
+        `${API_ROOT}/favorites/${favorite.id}`
       );
       console.log('res.data from deletefavorite', res.data);
       this.setState({ favorite: 0 }, () => {

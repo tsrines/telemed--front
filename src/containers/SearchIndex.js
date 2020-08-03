@@ -3,6 +3,7 @@ import DoctorCard from '../components/DoctorCard';
 import Axios from 'axios';
 
 import React, { Component } from 'react';
+import { API_ROOT } from '../constants';
 
 export default class SearchIndex extends Component {
   loadSearchIndex = async () => {
@@ -14,7 +15,7 @@ export default class SearchIndex extends Component {
       csv = csv.split(',');
       await csv.map(async (id) => {
         let doctorId = parseInt(id);
-        let res = await Axios.get(`http://localhost:3000/doctors/${doctorId}`);
+        let res = await Axios.get(`${API_ROOT}/doctors/${doctorId}`);
         let doc = res.data;
         index.push(doc);
         this.props.setSearchIndex(index);
